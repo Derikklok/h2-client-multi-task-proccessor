@@ -1,15 +1,9 @@
-name: Spring Boot CI
+name: Spring Boot CI/CD
 
 on:
   push:
     branches:
       - main
-
-  pull_request:
-    branches:
-      - main
-
-  workflow_dispatch:
 
 jobs:
 
@@ -22,11 +16,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set Up JDK
+      - name: Set Up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Build Project
+      - name: Build Application
         run: mvn clean install
+
+      - name: Build Docker Image
+        run: docker build -t task-manager .
