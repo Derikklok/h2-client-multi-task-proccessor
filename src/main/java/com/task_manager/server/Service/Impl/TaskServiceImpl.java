@@ -6,6 +6,7 @@ import com.task_manager.server.Entity.Task;
 import com.task_manager.server.Repository.TaskRepository;
 import com.task_manager.server.Service.TaskService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
